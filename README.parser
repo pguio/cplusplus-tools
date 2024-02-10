@@ -1,0 +1,125 @@
+
+The class Parser is meant to be used in two ways, either to be included in
+another class as an inherited class and/or to be included in the main
+routine.
+
+The first use is for classes containing fields to be initialised with some
+values. So far it handles intrinsic C++ types and STL vectors of intrinsics.
+
+As an example, the class Parser can be used in the class Foo as
+
+class Foo : public Parser {
+Foo::Foo(int nargs, char *args[]);
+private:
+	enum { var1_enum, ... };
+	int var1;
+....
+};
+
+The Foo constructor that uses the Parser feature looks like
+Foo::Foo(nargs, args, ....) :  Parser(nargs, args), var1(default_var1), ...
+{
+// Register class
+Parser::RegisterClass("Foo");
+Parser::RegisterPackage(package, version, copyright);
+
+// Insert options and aliases to parse a value to var1
+// the Any constructor is used to register the default value
+Parser::InsertOption(var1_enum,"var1","var1_type","var1_comment", Any(var1));
+// Insert alias to option
+Parser::InsertOptionAlias(var1_enum, "var1_alias1");
+Parser::InsertOptionAlias(var1_enum, "var1_alias2");
+....
+// Possibility to add a "debug level option" that takes an int argument,
+// the default value is 0
+Parser::ParseLevelDebugOption("debug_level_option_name");
+// the member function int Parser::DebugLevel() can be used thereafter to
+// check the this value
+if (Parser::DebugLevel() > 50) 
+	cout << "Debug level is " << Parser::DebugLevel() << endl;
+}
+
+Then a member function Foo::ParseParameters() method could look like
+void Foo::ParseParameters()
+{
+// The ParseOption family member functions return a boolean indicated
+// whether the var1 has been parsed
+if (Parser::ParseOption(var1_enum,var1))
+	cout << "var1    = " << var1 << " parsed." << endl;
+// Other ParseOption member functions are
+// * Parser::ParserOptions(var1_enum,vars1)
+//     same as ParseOption but returns a vector container of var1
+// * Parser::ParseOption(var1_enum,var1,"filename")
+//     parse the filename "filename" instead of the command line
+// * Parser::ParseOptioninFileonCmdLine(var1_enum,var1)
+//     if the option -i/--input[=]paramter_file is on the command line then 
+//     parse first the parameter_file, thereafter the command line.
+// * Parser::ParseOptiononCmdLineinFile(var1_enum,var1)
+//     if the option -i/--input[=]paramter_file is on the command line then
+//     parse first the command line, thereafter the parameter_file
+// * Parser::ParseHelp()
+//     if the option -h/--help is parsed, print to standard output a message
+//     with class_name information and a list of all the registered/inserted
+//     options for that class in the predefined format :
+//     option_name[,option_aliases]   option_type  option_comment 
+//     and return a true boolean
+// * Parser::ParseVersion()
+//     if the option -v/--version is parsed, print to standard output a
+//     message containing information package, version, copyright for the class
+// * Parser::ParseTemplate()
+//     if the option --create-template is parsed, print to standard output a 
+//     message with class_name information and a list of all the
+//     registered/inserted options for that class in a format to be used
+//     later with the -i/--input containing information about variable and
+//     aliases, type of the variable, comment/description and default value
+}
+
+The second way of using is from the main routine and is very similar to the
+first way
+
+int main(int nargs, char *args[])
+{
+  try {
+		Parser parser(nargs, args);
+		parser.RegisterProgram(args[0]);
+		parser.RegisterPackage(package, version, copyright);
+
+		Foo foo(nargs, args);
+
+		// Insert options if necessary
+		...
+
+		// Parse defaults
+		if (parser.ParseHelp()) {
+			foo.ParseHelp();
+			return EXIT_SUCCESS;
+		}
+		if (parser.ParseVersion()) {
+			foo.ParseVersion();
+			return EXIT_SUCCESS;
+		}
+		if (parser.ParseTemplate()) {
+			foo.ParseTemplate();
+			return EXIT_SUCCESS;
+		}
+
+		// Parse option for program if necessary
+		...
+	
+		// Parse class option
+		foo.ParseParameters();
+
+		...
+
+			return EXIT_SUCCESS;
+		} catch(ParseException &x) {
+			cerr << x.what() << endl;
+			return EXIT_FAILURE;
+		}
+}
+
+The try/catch is used to handle potential errors at parsing and uses a
+class ParseException.
+
+This is brief example to show how the class Parser can be used. 
+it can be used to handle more complex inherited classes.

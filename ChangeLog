@@ -1,0 +1,265 @@
+2020-04-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-fftw3.h:
+	Added an explicit "void *" cast to the destination of the "memcpy" function
+	to remedy the warning from -Wclass-memaccess.
+
+2020-04-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-fftw3.h:
+	Added commented code as an alternate to memcopy.
+
+2019-12-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf-interface.h, hdf5-interface.cpp:
+	Fixed problem introduced from HDF5 v1.8 to v1.10 due to redefinition of
+	hid_t from int to int64_t.
+
+2019-11-27  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Minor cosmetic changes and comments added.
+
+2017-11-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Fixed loop counter type to remove g++ warning.
+
+2017-10-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* bench.h:
+	Initialse static variable verbose to false by default.
+
+2016-06-02  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* classexception.h:
+	Fixed returned const char * returned by exception what(): string method
+	c_str() changed behaviour in c++11 and value returned by str.c_str()
+	not guaranted any longer. Solution is to strcopy it to a dynamically
+	allocated array.
+
+2016-06-01  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp, parser2.cpp:
+	Fixed a long standing bug that remained undiscovered until today! Need to
+	check nargs > 0 to assign args[0] to Cmd.
+
+2015-11-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf4-interface.cpp, hdf5-interface.cpp:
+	Moved code to check filename extension from member function createSD() up to
+	class constructor.
+
+2015-11-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Added trick for HDF version < 1.8 to temporarily disable automatic error
+	reporting (HDF5-DIAG) when (re)creating dimensions.
+
+2014-05-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Cosmetic change (astyle).
+
+2014-05-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	ALways create dimension when dealing with HDF5 v1.6.
+
+2014-05-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Cosmetic change (astyle).
+
+2014-05-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Added code to ensure backward compatibility from HDF5 v1.8 down to v1.6.
+
+2013-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf-interface.cpp, hdf-interface.h, hdf4-interface.cpp,
+	  hdf5-interface.cpp:
+	Added code to replace unconditionally any .hdf extension to .h5 for hdf5 and
+	any .h5 extension to .hdf for hdf4.
+
+2012-11-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Added description of start, stride, count and block.
+
+2012-11-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp, hdf5-interface.h:
+	Initial functional version of hdf5 interface.
+
+2012-11-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf4-interface.cpp:
+	Added description of slab.
+
+2012-11-06  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf5-interface.cpp:
+	Updated to latest API version 2 provided from version 1.8, the old API
+	version 1 was available up to version 1.6.
+
+2011-11-10  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* time-utils.h:
+	Added support for MPI native timer functionality when MPI is enabled.
+
+2011-11-07  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp: Force cast of both arguments to pow as double to avoid problem with AIX
+	compiler xlC.
+
+2011-04-08  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf-interface.cpp:
+	Fixed varname member to string default empty constructor.
+	Fixed vartype member to default hdf4 value DFNT_NONE (number type not set).
+
+2011-04-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-fftw3.h, gnuplot-interface.cpp, parser.cpp, parser.h,
+	  parser2.cpp, parser2.h, time-utils.h:
+	Added all class/structure members to the initialisation list.
+
+2011-04-05  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* any.h, fourier-fftw3.h, gnuplot-interface.h, hdf-interface.cpp,
+	  hdf-interface.h, hdf4-interface.cpp, parser.h, parser2.h,
+	  time-utils.h:
+	Added explicit keyword for constructor with single argument (may cause
+	implicit type conversion).
+
+2011-03-26  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* any.h, bench.h, classexception.h, cycle.h, fourier-dxml.h,
+	  fourier-fftw.h, fourier-fftw3.h, fourier-mlib.h, fourier.h,
+	  gnuplot-interface.cpp, gnuplot-interface.h, hdf-interface.cpp,
+	  hdf-interface.h, hdf4-interface.cpp, hdf4-interface.h,
+	  hdf5-interface.cpp, hdf5-interface.h, integrate.cpp, integrate.h,
+	  parser.cpp, parser.h, parser2.cpp, parser2.h,
+	  plplot-interface.cpp, plplot-interface.h, time-utils.h,
+	  update-cl.sh:
+	Updated file header information.
+
+2011-03-24  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp:
+	Fixed minor typo.
+
+2011-03-13  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp, parser.h, parser2.cpp, parser2.h:
+	Added member Cmd to contain argv[0].
+	Added ostream argument to viewOptions() and viewArgs() members.
+	Added new member printCmd() to print complete information about time,
+	hostname, working directory and full command.
+
+2009-06-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-fftw3.h:
+	Added `restrict' pointer qualifier to forward and backward fftw_plan's and
+	input/output array pointers inFftw and outFftw.
+
+2008-07-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp, parser2.cpp:
+	Added parenthesis to get rid of ambiguous statement.
+
+2008-07-22  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp, parser2.cpp, time-utils.h:
+	Removed cpp macros to test whether C standard headers in std namespace.
+
+2008-07-20  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* bench.h:
+	Removed restrictive constness on member op().
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser2.cpp:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-07-19  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp:
+	Fix for more stringent g++ version 4.3.0.
+
+2008-05-01  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* hdf-interface.cpp:
+	Impose width format to output streams.
+
+2008-04-10  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* time-utils.h:
+	Fixed format flag in insertion operator.
+
+2008-04-10  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* time-utils.h:
+	Fixed stream restore after using ios::fixed manipulator.
+
+2008-04-10  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier.h, hdf-interface.cpp:
+	Fixed stream restore after using ios::left manipulator.
+
+2008-04-09  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* time-utils.h:
+	Reset fixed format after use in iterStatus.
+	Reset fill character to original in toHMS.
+
+2007-08-28  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* plplot-interface.cpp, plplot-interface.h:
+	Basic interface wrapper for PLplot.
+
+2007-07-23  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier.h:
+	Fixed template functions fftshift() and ifftshift()'s argument by value.
+
+2007-05-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* fourier-fftw3.h:
+	Added planner flag as a member of the class.
+	Added member function to set planner flag.
+
+2007-05-29  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser2.cpp, parser2.h, parser.cpp, parser.h:
+	Fixed the way the BadException class throws a ParserException, replaced
+	public inheritance and BadException constructor in initialisation list by
+	a throw in the constructor block.
+	Added an exception if the option to InputFileName is not a valid filename.
+
+2007-05-27  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser.cpp:
+	Added code to check whether input filename is a valid file in Parser
+	constructor.
+
+2007-05-11  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* classexception.h:
+	Added virtual declaration and removed typedef for std::string.
+
+2007-04-02  Patrick Guio <p.guio@ucl.ac.uk>
+
+	* parser2.cpp, parser2.h:
+	Extended  parser with template argument for testing domain of validity of
+	parsed value.
+
+2006-08-28  Patrick Guio <patrick.guio@matnat.uio.no>
+
+	* ChangeLog, ChangeLog.0, update-cl.sh:
+	Moved manually filled ChangeLog into ChangeLog.0.
+	Added script to update ChangeLog using cvs2cl script.
+

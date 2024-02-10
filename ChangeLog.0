@@ -1,0 +1,439 @@
+
+
+Mon Aug 21 13:49:15 CEST 2006  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf-interface.h hdf4-interface.h hdf5-interface.h:
+	Removed pure virtual declaration for template functions.
+
+
+Mon Dec  5 19:27:15 CET 2005   Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf5-interface.cpp: Fixed a variable signed'ness.
+
+	* New tag: cpp_tools_0_1_1
+
+Mon Sep 12 16:47:22 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf4-interface.cpp hdf4-interface.h: Renamed class member
+	identificators objects from *_id to *Id.
+	* hdf-interface.cpp hdf-interface.h: Added default class member function
+	initSDvar().
+	* c++-tools/hdf5-interface.cpp c++-tools/hdf5-interface.h: 
+	Renamed class member identificators objects from *_id to *Id.
+	Some work done in member function initSDvar().
+
+Mon Sep  5 18:21:53 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf5-interface.cpp hdf5-interface.h: Fixed initialisation of trait
+	definition in type struct template.
+
+Sun Sep  4 20:43:29 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf5-interface.cpp hdf5-interface.h: Fixed createSD() method.
+
+Mon Aug 22 16:16:23 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf-interface.h hdf4-interface.cpp hdf4-interface.h hdf5-interface.cpp
+	hdf5-interface.h: Changed method initSD() into createSD(). Removed method
+	endInitSD().
+
+
+Fri Jul  8 17:35:50 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf4-interface.h hdf5-interface.h: New files to support both HDF4 
+	and HDF5 formats.
+	* hdf-interface.cpp M hdf-interface.h hdf4-interface.cpp
+	hdf5-interface.cpp: Fixed the HDF4 format and some work done on the
+	HDF5 format.
+
+
+Thu Jul  7 17:19:20 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf4-interface.cpp hdf5-interface.cpp: New files.
+	* hdf-interface.cpp: Moved current HDF4 implementation into 
+	hdf4-interface.cpp and start to write a HDF5 interface.
+
+
+Wed Jul  6 18:18:14 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf-interface.cpp hdf-interface.h: Moved explicit specialisation 
+	of numerical trait structure type in the definition file to be visible.
+
+Tue Jul  5 17:49:03 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf-interface.cpp hdf-interface.h: Added numerical trait structure 
+	to map C++ types into HDF defined types. Moved SDvar structure outside 
+	Hdf class. Changed Hdf class member function writeSDvar to be a template 
+	member function of the data type to write. Moved member fdunctions 
+	definitions from header file to implementation file.
+
+Mon Jun 27 13:01:22 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf-interface.cpp hdf-interface.h: Fixed bug introduced when changing
+	from post-increment operator to  pre-increment operator in initSDvar
+	dimensions loop. Added filename and line number in hdfError API.
+
+Wed Jun 22 11:52:41 CEST 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* bench.h classexception.h cycle.h fourier.h gnuplot-interface.cpp
+	gnuplot-interface.h hdf-interface.cpp integrate.h parser.cpp
+	parser.h time-utils.h: Astylised.
+
+
+Mon Jun 20 17:10:58 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* bench.h fourier.h gnuplot-interface.cpp gnuplot-interface.h
+	hdf-interface.cpp hdf-interface.h integrate.h parser.cpp
+	parser.h: 
+	Replaced post-increment operator i++ by pre-increment operator ++i for
+	integral and iterator types wherever possible as faster (from C++ FAQ).
+
+
+Tue Jun 14 17:15:56 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* hdf-interface.cpp hdf-interface.h: Added the possibility to add
+	 an extra message when error detected in hdfError().
+
+
+Mon May  9 16:56:40 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-interface.cpp gnuplot-interface.h: Removed constructors with 
+	plot function.
+
+Thu May  5 18:16:28 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-interface.cpp gnuplot-interface.h: Added inlined function to
+	quote string. Fixed wrongly quoted gnuplot commands.
+
+
+Wed May  4 18:42:55 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-interface.cpp gnuplot-interface.h: More code refactoring.
+	Added title and label functionalities.
+
+
+Tue May  3 16:00:03 CEST 2005 Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* gnuplot-interface.cpp gnuplot-interface.h: New files.
+	* gnuplot-interface.cpp gnuplot-interface.h: important code refactoring.
+	* gnuplot-interface.h: Added support for blitz Array.
+
+
+Tue Feb 22 20:28:08 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* bench.h: Added explicit namespace for Timer, smartTime and verbose
+	in macro BENCH.
+
+
+Mon Feb 14 09:40:36 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: Added class 
+	template specialisation specification (template <>) before class 
+	specialisation definition.
+
+Fri Feb  4 10:42:00 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* parser.h: Removed include macros <errno.h> and <stdlib.h> as not used
+	any longer.
+	* parser.cpp: Added include macro <math.h> for pow and powf prototype
+	declaration.
+
+
+Sat Jan 29 19:51:42 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* classexception.h: Replaced const string argument passed by reference 
+	by string passed by value to allow in place construction.
+	* parser.cpp parser.h: Refactoring og the exception handling. ParserException 
+	and BadConversion are classes derived from ClassException. Replaced (*ptr).func 
+	syntax by ptr->func. Small cosmetic changes. All member functions definition in
+	class Parser taken out of the class declaration.
+
+
+Fri Jan 28 18:10:55 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* classexception.h: Replaced <exception> by <stdexception>.
+	* parser.cpp parser.h: Mostly completed refactoring of char* type use into
+	std::string. Templatised convert member function. Refactoring of
+	parseOption's and related member functions.
+	* hdf-interface.cpp: Replaced parseOptionInFileOnCmdLine calls to
+	generic parseOption member function.
+
+Wed Jan 26 10:20:19 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* parser.cpp parser.h: Renamed parser-char.cpp and parser-char.h.
+	* parser-string.cpp parser-string.h: Renamed parser.cpp and parser.h.
+	* parser-char.cpp parser-char.h: Removed.
+	* parser-string.cpp: Fixed correct include file <parser.h>.
+	* parser.h: Replaced use of char* type by std::string in convert template 
+	member functions.
+
+Tue Jan 25 10:56:33 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* parser-string.cpp parser-string.h parser.cpp parser.h: Removed
+	unnecessary methods to insert option value with two args (name, subname).
+	* parser-string.h: Fixed a few typos that caused compilation errors. 
+
+
+Tue Jan 18 15:00:07 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* time-utils.h: Replaced std::setiosflags(std::ios::fixed) calls by
+	std::fixed calls.
+
+
+Thu Jan 13 15:03:10 CET 2005  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	Version tag cpp_tools_0_1
+	Branch tag cpp_tools_branch_0_1
+	* parser.cpp parser.h parser-string.cpp parser-string.h: 
+	Branch tag parser_branch_0_1
+
+	* parser-string.cpp parser-string.h: Replaced most of occurences of char* by
+	safer container std::string.
+
+Fri Dec 17 13:01:44 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* parser.cpp parser.h parser-string.cpp parser-string.h: Removed insertOption
+	method without specified valueType.
+
+Fri Dec  3 11:00:37 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* classexception.h: Refactored.
+
+Thu Dec  2 12:55:03 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* any.h parser-string.h parser.h: Added namespace any.
+	* hdf-interface.cpp hdf-interface.h: Added namespace hdf.
+
+	* any.h parser-string.h parser.h: Undo changes.
+
+Tue Nov 30 12:40:21 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier.h fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: 
+	Updated inplace DFT IDFT1D template class with 2 templates (input/output).
+
+	* any.h: Fixed exception throw statement.
+
+	* fourier.h: Declared tensorial direct() and inverse() as non-virtual
+	functions.
+	* fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: Fixes and
+	optimisation.
+
+	* c++-tools/parser-string.h c++-tools/parser.h: Removed extern int errno
+	declaration.
+
+Mon Nov 29 15:55:35 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-dxml.h fourier-mlib.h: Type declaration and constness fixes.
+	* bench.h: Removed initialisation of bench::verbose.
+	* fourier.h: Added cosmetic formatting in AsbtractDFT1D::printOn().
+
+	* fourier.h fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: 
+	Fixed argument type of inverse() method in out of place DFT1D classes.
+	* fourier-fftw3.h: Fixed r2r create() method in in/out of place DFT1D classes.
+
+	* fourier-dxml.h fourier-mlib.h: Added template class IDFT1D for double and
+	complex.
+
+	* fourier-fftw3.h fourier.h: Added template class IHDFT1D for heterogeneous
+	in and out types.
+
+	* fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: Reordered
+	class definition.
+
+Sun Nov 28 23:25:11 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier.h fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: 
+	Removed "in place"/ "out of place" flag. Added support for "in place" and
+	"out of place" FFT with two different abstract base classes. 
+
+Tue Nov 16 16:57:25 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier.h fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: 
+	Added "in place"/ "out of place" flag.
+
+
+Fri Nov 12 15:30:01 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: Added
+	real-valued FFT support.
+
+
+Thu Nov 11 17:18:14 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* fourier-dxml.h fourier-fftw.h fourier-fftw3.h fourier-mlib.h: New files.
+	* fourier.h: split FFT implementation into above files so long. This file
+	only contains abstract base class and template functions. Created
+	namespace 'fourier'.
+
+	* parser-string.cpp parser-string.h parser.cpp parser.h: Replaced type 
+	enum valueType by const int valueType declarations inside new namespace 
+	parser::types.
+	* hdf-interface.cpp: Updated change for valueType above.
+
+Wed Nov 10 16:58:09 CET 2004  Patrick Guio <patrick.guio@bccs.uib.no>
+
+	* bench.h: Created namespace 'bench'. Added template function version 
+	of preprocessor macro. 
+	* time.utils.h: Created namespace 'timeutils'.
+
+Wed Oct 20 10:23:25 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* any.h: Added assignement operator for ValueType. 
+	Added any_cast<ValueType>(Any & *).
+	* bench.h: Added template class benchClassOp() to replace the 
+	cpp macro BENCH().
+
+Tue Oct 19 19:26:34 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* any.h: Added an assignement operator.
+	* parser-string.cpp parser-string.h parser.cpp parser.h: More work done 
+	with stronger use of variable type.
+
+Mon Oct 18 18:32:54 CEST 2004 Patrick Guio <patrick.guio@ii.uib.no>
+
+	* parser-string.cpp parser-string.h parser.cpp parser.h: Refactorised
+	the type argument of insertOption to be of predefined enum valueType
+	and not a string any longer.
+	The string describing the valueType is kept in a map. 
+	Structurised LUT/Pair types and added new types for OptionType and
+	OptionDesc.
+	* hdf-interface.cpp: Modified insertOption() argument type to be an enum
+	Parser::valueType.
+
+Mon Mar 22 09:46:22 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* fourier.h: Added variable blckSize in FFTW3 to handle memcpy.
+
+Thu Feb 26 10:14:12 CET 2004 Patrick Guio <patrick.guio@fys.uio.no>
+
+	* fourier.h: Added support for FFTW3.
+	* cycle.h: New file. Imported from FFTW3. Timer tools.
+
+Wed Jul  9 12:09:27 CEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* fourier.h: Added binomial filters.
+
+Tue May 20 11:05:56 MEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* Parser.cpp parser-string.cpp parser-string.h parser.cpp parser.h
+	fourier.h: Moved to stricter ANSI C++ coding.
+
+Mon May 19 18:55:28 CEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* hdf-interface.cpp hdf-interface.h integrate.h parser.cpp parser.h:
+	Moved to stricter ANSI C++ coding.
+
+Sun May 18 17:11:21 CEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser-string.cpp parser-string.h parser.cpp: Specify namespace std when
+	calling getline().
+	* parser-string.h parser.h time-utils.h: Don't use ctime with CC/SGI.
+
+Sat May  3 19:37:34 CEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* Parser.cpp hdf-interface.cpp parser.cpp parrser.cpp parser-string.cpp
+	parser-string.h: Renamed manipulator title_header into header.
+	* bench.h time-utils.h: Use times function call w/o MPI.
+
+Mon Apr 14 15:49:05 CEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* time-utils.h: Added class Timer.
+
+Sun Apr  6 16:26:59 CEST 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser-string.cpp parser-string.h parser.cpp parser.h: Added protected
+	variable rankProc and nbProc to support MPI.
+
+Wed Mar 19 16:59:13 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* hdf-interface.cpp parser.h parser-string.h: Renamed Parser class 
+	member function getDebugLevel() to debugLevel()
+
+Thu Mar 13 16:40:36 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* Parser.cpp parser-string.cpp parser-string.h parser.cpp: Moved
+	unecessary inlined declarations of member functions from the declaration
+	header .h file to the definition/ implementation .cpp file. Attempt to
+	reorder function definition as they are declared.
+
+Wed Mar 12 15:06:15 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* hdf-interface.{h,cpp}: Moved all inlined functions in hdf-interface.cpp.
+	Renamed some member functions.
+
+Mon Mar 10 12:25:27 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* time-utils.h: New file
+	* any.cpp any.h: Added `type' feature with the new member function type()
+	* parser-string.cpp parser-string.h parser.cpp parser.h: Added use of
+	type()
+
+Thu Mar  6 15:39:59 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser-string.cpp parser-string.h parser.cpp parser.h: Added new feature to
+	be able to set a prefix.
+
+Sun Mar  2 16:27:08 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* Parser.cpp any.cpp bench.h fourier.h hdf-interface.h parser-string.h
+	parser.h: Removed unnecessary inline keyword.
+
+Mon Feb 24 10:46:00 CET 2003 Patrick Guio <patrick.guio@fys.uio.no>
+	* any.{h,cpp}: removed `using namespace' in header file and side effects
+	on any.cpp
+	* classexception.h: removed `using namespace'
+	* fourier.h: removed `using namespace'
+	* hdf-interface.{h,cpp}: removed `using namespace'
+	* parser.{h,cpp}: removed `using namespace' 
+	* parser-string.{h,cpp}: removed `using namespace'
+
+Tue Dec 11 10:20:20 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* any.{h,cpp}: new files. The class Any is a simple polymorphic
+	container with a simple operator << overloading.
+	* parser.{h,cpp}: added the default value of the variable when inserting
+	the option using the Any class.
+	* parser.cpp: boolean conversion extended with "0" and "1" values.
+	* hdf_interface.{h,cpp}: added new field dimtype in the class
+	Hdf::Variable
+
+Sun Dec  9 21:05:24 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* exception.h, parser.h: changed what declaration from const string what()
+	to const char * what() const throw()
+
+Fri Nov 30 14:44:14 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.h: added a new class map_elt to display elements of a Parser::LUT
+	in a simple way for ostream operator<<
+
+Thu Nov 29 16:30:05 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.{h,cpp}: added new member functions ParseLevelDebugOption and
+	DebugLevel() to handle a debug level variable from the Parser class
+
+Wed Nov 28 19:04:25 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.{h,cpp}: added a default argument to be parsed in addition of
+	help and version: --input <filename> or -i <filename> which is the path of
+	a file to be parsed for options
+	* parser.{h,cpp}: new member functions : ParseOptioninFileonCmdLine and
+	ParseOptiononCmdLineinFile to parse in sequence the command line and the
+	parameter file
+	* parser.{h,cpp}: added a default argument to be parsed: --create-template
+	which prints to the stderr a template of the available options
+
+Fri Nov 16 11:35:04 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* hdf_interface.{h, cpp}: new files
+
+Thu Nov 15 15:18:15 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.cpp: fixed an (awful) bug when checking whether a key was
+	already mapped.
+	* parser.{h,cpp}: make const some member functions Convert, ParseOption,
+	ParseHelp and ParseVersion
+
+Thu Nov  8 14:51:32 CET 2001 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.cpp: improved the warning diagnostic in the option and alias
+	insertion
+	* added a debug option through the option debug_parser
+
+Fri Nov 10 21:13:14 CET 2000 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.h, parser.cpp: astylised.
+
+Mon Nov  6 12:13:23 CET 2000 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.cpp, parser.h: added support for TinyVector<T,N> and
+	vector<T> with templates
+
+Sat Nov  4 21:33:42 CET 2000 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.h: included parsing of parameters through files
+
+Thu Nov  2 08:41:56 CET 2000 Patrick Guio <patrick.guio@fys.uio.no>
+	* parser.cpp: parser function ParseOption templated
+
+Sat Oct 28 14:41:42 CEST 2000 Patrick Guio <patrick.guio@fys.uio.no>
+	* Modified argparsing.* into parser.*
+
+2000-08-15  Patrick Guio  <patrick@phys.uit.no>
+	* Start to log changes :-)
